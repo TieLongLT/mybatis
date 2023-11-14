@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.mybatis.example.BlogMapper">
+
+
+<!--    Select语句-->
+    <select id="selectById" resultType="com.njupt.mybatis.pojo.Car">
+            select * from t_car where id = #{id}
+    </select>
+
+<!--    Update语句-->
+    <update id="updateById">
+        update t_car set
+            car_num = #{carNum},
+            brand = #{brand},
+            guide_price = #{guidePrice},
+            produce_time= #{produceTime},
+            car_type = #{carType}
+        where
+            id = #{id}
+    </update>
+<!--    Delete语句-->
+    <delete id="deleteById">
+        delete from t_car where id = #{id}
+    </delete>
+<!--    Insert语句-->
+    <insert id="insertCar">
+        insert into t_car(id,car_num,brand,guide_price,produce_time,car_type)
+       <!-- values(null,#{carNum},#{brand},#{guidePrice},#{produceTime},#{carType})-->
+        values(null,#{carNum},#{brand},#{guidePrice},#{produceTime},#{carType})
+    </insert>
+
+</mapper>
